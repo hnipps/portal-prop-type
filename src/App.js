@@ -21,12 +21,12 @@ function App() {
       <Router>
         {mountPoint
           ? ReactDOM.createPortal(
-              React.createElement(Link, { to: "/product" }, "TEST"),
+              React.createElement(Link, { to: "/other-page" }, "OTHER PAGE"),
               mountPoint
             )
           : null}
         <Switch>
-          <Route path="/">
+          <Route path="/" exact>
             <div className="App">
               <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
@@ -43,6 +43,10 @@ function App() {
                 </a>
               </header>
             </div>
+          </Route>
+          <Route path="/other-page">
+            <Link to="/">HOME</Link>
+            <h1>Other page</h1>
           </Route>
         </Switch>
       </Router>
